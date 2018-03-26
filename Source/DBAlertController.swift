@@ -32,6 +32,14 @@ public class DBAlertController: UIAlertController {
             rootViewController.presentViewController(self, animated: flag, completion: completion)
         }
     }
+	
+    public func hide(animated flag: Bool = true, completion: (() -> Void)? = nil) {
+        if let rootViewController = alertWindow.rootViewController {
+            alertWindow.makeKeyAndVisible()
+            
+            self.dismiss(animated: flag, completion: completion)
+        }
+    }
     
 }
 
