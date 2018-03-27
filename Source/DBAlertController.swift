@@ -37,7 +37,10 @@ public class DBAlertController: UIAlertController {
         if let rootViewController = alertWindow.rootViewController {
             alertWindow.makeKeyAndVisible()
             
-            self.dismiss(animated: flag, completion: completion)
+	    self.dismiss(animated: flag, completion: { [weak self] in
+                self?.alertWindow.resignKey()
+                completion?()
+            })
         }
     }
     
